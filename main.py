@@ -3,7 +3,7 @@ import pandas as pd
 
 # Import backend logic
 from Bahar_classification import detect_best_bahr
-from radeef_qafia import detect_radeef_multi, detect_qafiya_multi
+from radeef_qafiya import detect_radeef_multi, detect_qafiya_multi
 from meter_model import predict_meter_lines
 from rhyme_suggestions import suggest_rhymes
 
@@ -85,4 +85,5 @@ if st.button("🔍 Analyze", type="primary"):
 
                 except Exception as e:
                     st.error(f"Error: {e}")
+
                     st.info("Ensure 'optimized_meter_model.pt' and 'qafiya_merged.json' are in the root directory.")

@@ -11,7 +11,7 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 
 # Load model architecture
 model = AutoModelForTokenClassification.from_pretrained(MODEL_NAME, num_labels=2)
-model.load_state_dict(torch.load(MODEL_PATH, map_location=device))
+model.load_state_dict(torch.load(MODEL_PATH, map_location=device), strict=False)
 model.to(device)
 model.eval()
 
@@ -55,3 +55,4 @@ def predict_meter_lines(lines: list) -> list:
     Predict meter pattern for multiple lines separately
     """
     return [predict_meter_line(line) for line in lines if line.strip()]
+
